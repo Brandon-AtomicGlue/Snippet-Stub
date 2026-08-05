@@ -32,16 +32,18 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
 
 # vercel
 .vercel
 
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# local blob storage fallback (dev only, see lib/storage.ts)
+/public/uploads/
 
 # local embedded-Postgres fallback when DATABASE_URL is unset (dev only, see lib/db/client.ts)
 /.data/
 
-# local blob storage fallback (dev only, see lib/storage.ts)
-/public/uploads/
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+node_modules
