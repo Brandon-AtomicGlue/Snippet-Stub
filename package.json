@@ -11,6 +11,7 @@
     "db:migrate": "node --env-file-if-exists=.env.local ./node_modules/.bin/drizzle-kit migrate"
   },
   "dependencies": {
+    "@vercel/blob": "^2.6.1",
     "drizzle-orm": "^0.45.2",
     "next": "16.3.0",
     "pg": "^8.22.0",

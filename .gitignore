@@ -42,3 +42,6 @@ next-env.d.ts
 
 # local embedded-Postgres fallback when DATABASE_URL is unset (dev only, see lib/db/client.ts)
 /.data/
+
+# local blob storage fallback (dev only, see lib/storage.ts)
+/public/uploads/
