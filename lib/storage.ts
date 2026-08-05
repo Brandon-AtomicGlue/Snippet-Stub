@@ -17,9 +17,12 @@ const LOCAL_UPLOAD_DIR =
  */
 async function putImageLocal(buffer: Buffer, extension: string): Promise<StoredImage> {
   await mkdir(LOCAL_UPLOAD_DIR, { recursive: true });
-  const storageKey = `${randomUUID()}.${extension}`;
-  await writeFile(path.join(LOCAL_UPLOAD_DIR, storageKey), buffer);
-  return { storageKey, url: `/uploads/${storageKey}` };
+  const filename = `${randomUUID()}.${extension}`;
+  await writeFile(path.join(LOCAL_UPLOAD_DIR, filename), buffer);
+  // Same convention as the Blob branch below: storageKey is the directly
+  // resolvable path, so retrieval never needs to know which backend wrote it.
+  const url = `/uploads/${filename}`;
+  return { storageKey: url, url };
 }
 
 export async function putImage(buffer: Buffer, contentType: string): Promise<StoredImage> {
