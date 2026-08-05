@@ -24,3 +24,34 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Shiki dual-theme output: codeToHtml(..., { defaultColor: false }) emits
+   --shiki-light/--shiki-dark custom properties per span; pick one based on
+   color scheme instead of shipping two separately-themed HTML blobs.
+   Container background comes from Tailwind classes, not from Shiki. */
+.shiki,
+.shiki span {
+  color: var(--shiki-light);
+}
+
+@media (prefers-color-scheme: dark) {
+  .shiki,
+  .shiki span {
+    color: var(--shiki-dark);
+  }
+}
+
+.code-editor-layer {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  tab-size: 2;
+  white-space: pre;
+  overflow: auto;
+}
+
+.code-editor-layer pre.shiki {
+  margin: 0;
+  padding: 0;
+  background: transparent !important;
+}

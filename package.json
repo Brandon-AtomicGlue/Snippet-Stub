@@ -17,6 +17,7 @@
     "pg": "^8.22.0",
     "react": "19.2.8",
     "react-dom": "19.2.8",
+    "shiki": "^4.4.2",
     "zod": "^4.4.3"
   },
   "devDependencies": {
